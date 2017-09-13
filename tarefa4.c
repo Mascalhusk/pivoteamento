@@ -18,13 +18,14 @@ void pivoteamento(double **M, int dim)
 {	int i, j;
 	double aux;
 
-	for(i=0;i<dim+1;i++)
-    	{
-	        aux = M[1][i];
-	        M[1][i] = M[0][i];
-	        M[0][i] = aux;
-   	}
-
+	if(M[0][0]<M[1][0])
+	{	for(j=0;j<dim+1;j++)
+    		{
+	        	aux = M[1][j];
+	        	M[1][j] = M[0][j];
+	        	M[0][j] = aux;
+   		}
+	}
 
 }
 		
