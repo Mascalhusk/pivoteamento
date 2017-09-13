@@ -16,16 +16,16 @@ void imprime(double **M, int dim)
 
 void pivoteamento(double **M, int dim)
 {	int i, j;
-	double **aux;
-	
-	for(j=0; j<dim+1; j++)
-	{	if(M[0][j]<M[1][j])
-		{
-			M[0][j] = aux[0][j];
-			M[0][j] = M[1][j];
-			M[1][j] = aux[0][j];		
-		}
-	}
+	double aux;
+
+	for(i=0;i<dim+1;i++)
+    	{
+	        aux = M[1][i];
+	        M[1][i] = M[0][i];
+	        M[0][i] = aux;
+   	}
+
+
 }
 		
 int main()
@@ -56,7 +56,7 @@ int main()
 	printf ("\nA matriz fornecida é:\n");
 	imprime(M, dim);
  	pivoteamento(M, dim);
- 	printf ("\nA matriz após o pivoteamento  é:\n");
+ 	printf ("\nA matriz após o pivoteamento  é da primeira linha é:\n");
  	imprime(M, dim);
  	
 }
