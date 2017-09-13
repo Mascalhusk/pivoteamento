@@ -13,6 +13,20 @@ void imprime(double **M, int dim)
  	}
  	
 }
+
+void pivoteamento(double **M, int dim)
+{	int i, j;
+	double **aux;
+	
+	for(j=0; j<dim+1; j++)
+	{	if(M[0][j]<M[1][j])
+		{
+			M[0][j] = aux[0][j];
+			M[0][j] = M[1][j];
+			M[1][j] = aux[0][j];		
+		}
+	}
+}
 		
 int main()
 {	
@@ -30,20 +44,19 @@ int main()
 	}
 	 
 	i = j = 0;
-	while(fscanf(leitura, "%lf", &a) != EOF) {
-	 M[i][j] = a;
-	 j++;
-	 if(j==dim+1) {
-	 j=0;
-	 i++;
-	 }
+	while(fscanf(leitura, "%lf", &a) != EOF) 
+	{
+		M[i][j] = a;
+	 	j++;
+	 	if(j==dim+1) 
+	 	{	j=0; i++;	}
+	
 	}
 	
 	printf ("\nA matriz fornecida é:\n");
 	imprime(M, dim);
- 	/*
  	pivoteamento(M, dim);
  	printf ("\nA matriz após o pivoteamento  é:\n");
  	imprime(M, dim);
-	*/
+ 	
 }
