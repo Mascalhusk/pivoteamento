@@ -28,6 +28,21 @@ void pivoteamento(double **M, int dim)
 	}
 
 }
+
+void pivoteamento1(double **M, int dim)
+{	int j;
+	double aux;
+
+	if(M[2][2]<M[3][2])
+	{	for(j=2;j<dim+1;j++)
+    		{
+	        	aux = M[3][j];
+	        	M[3][j] = M[2][j];
+	        	M[2][j] = aux;
+   		}
+	}
+
+}
 	
 void escalonamento(double **M, int dim)
 {	int j;
@@ -41,7 +56,17 @@ void escalonamento(double **M, int dim)
 	}
 
 }
-	
+
+void escalonamento2(double **M, int dim)
+{	int i;
+	for (i=0; i<dim+1; i++)
+	{
+		M[2][i+1] = M[2][i+1] + M[1][i+1];
+		M[3][i+1] = M[3][i+1] - 2.0*M[1][i+1];
+
+	}
+}
+
 int main()
 {	
 	//contadores
@@ -71,7 +96,7 @@ int main()
 	imprime(M, dim);
 
  	pivoteamento(M, dim);
- 	printf ("\nA matriz após o pivoteamento  é da primeira linha é:\n");
+ 	printf ("\nA matriz após o pivoteamento da primeira linha é:\n");
  	imprime(M, dim);
 
 		
@@ -79,5 +104,13 @@ int main()
 	printf ("\nA matriz após o primeiro passo de escalonamento:\n");
  	imprime(M, dim);
 	
- 	
+ 	escalonamento2(M, dim);
+	printf ("\nA matriz após o segundo passo de escalonamento:\n");
+	imprime(M, dim);
+
+	pivoteamento1(M, dim);
+ 	printf ("\nA matriz após o pivoteamento da terceira linha é:\n");
+ 	imprime(M, dim);
+
+	
 }
