@@ -67,6 +67,16 @@ void escalonamento2(double **M, int dim)
 	}
 }
 
+void escalonamento3(double **M, int dim)
+{	int i;
+	for (i=2; i<dim+1; i++)
+	{
+		M[3][i] = M[3][i] + (1/3.0)*M[2][i];
+
+	}
+}
+
+
 int main()
 {	
 	//contadores
@@ -112,5 +122,7 @@ int main()
  	printf ("\nA matriz após o pivoteamento da terceira linha é:\n");
  	imprime(M, dim);
 
-	
+	escalonamento3(M, dim);
+	printf ("\nA matriz após o terceiro passo de escalonamento:\n");
+	imprime(M, dim);
 }
